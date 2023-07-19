@@ -177,6 +177,7 @@ export async function authenticate() {
     authenticationResponse.response.userHandle
   );
 
+  authenticationResponse
   return authenticationResponse;
 }
 
@@ -191,6 +192,7 @@ export async function getSessionSigsForWebAuthn(pkpPublicKey, authData) {
   const authMethod = litNodeClient.generateAuthMethodForWebAuthn(authData);
 
   // Get sessionSigs
+
   const authNeededCallback = async params => {
     const resp = await litNodeClient.signSessionKey({
       authMethods: [authMethod],
@@ -200,7 +202,8 @@ export async function getSessionSigsForWebAuthn(pkpPublicKey, authData) {
       chainId: 1,
     });
     return resp.authSig;
-  };
+  }
+  
 
   const sessionSigs = await litNodeClient.getSessionSigs({
     expiration: DEFAULT_EXP,

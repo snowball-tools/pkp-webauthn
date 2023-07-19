@@ -1,6 +1,5 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { useAppDispatch, useAppState } from '../context/AppContext';
-import useWalletConnect from '../hooks/useWalletConnect';
 import { getChain, getNetworkIcon } from '../utils/helpers';
 
 export default function NetworkMenu({ dropdownMenuContainer }) {
@@ -11,7 +10,6 @@ export default function NetworkMenu({ dropdownMenuContainer }) {
   const prodNetworks = appChains.filter(chain => !chain.testNetwork);
   const testNetworks = appChains.filter(chain => chain.testNetwork);
 
-  const { updateSession } = useWalletConnect();
 
   function handleValueChange(value) {
     const newChainId = parseInt(value);

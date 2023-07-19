@@ -7,12 +7,10 @@ import AddChainPrompt from './AddChainPrompt';
 import SwitchChainPrompt from './SwitchChainPrompt';
 import TransactionPrompt from './TransactionPrompt';
 import RawTransactionPrompt from './RawTransactionPrompt';
-import useWalletConnect from '../hooks/useWalletConnect';
 import LitPKP from '../utils/wallet';
 
 export default function CallRequest({ payload }) {
   const { currentPKP, sessionSigs, appChains, wcConnector } = useAppState();
-  const { updateSession } = useWalletConnect();
 
   const dispatch = useAppDispatch();
 
@@ -40,10 +38,7 @@ export default function CallRequest({ payload }) {
     return wallet;
   }
 
-  // Approve request via WalletConnect
   async function approveRequest(payload) {
-    // console.log('Approve request via WalletConnect', payload);
-
     const wallet = await loadPKPWallet(wcChainId);
 
     let result;

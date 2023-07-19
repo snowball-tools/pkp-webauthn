@@ -4,13 +4,11 @@ import { useState, useEffect } from 'react';
 import Dashboard from '../components/Dashboard';
 import { useAppDispatch, useAppState } from '../context/AppContext';
 import { browserSupportsWebAuthn } from '@simplewebauthn/browser';
-import useWalletConnect from '../hooks/useWalletConnect';
 import { WALLETCONNECT_KEY } from '../utils/constants';
 
 export default function Home() {
   const { isAuthenticated, sessionExpiration, wcConnector } = useAppState();
   const dispatch = useAppDispatch();
-  const { wcConnect, wcDisconnect } = useWalletConnect();
 
   const [isWebAuthnSupported, setIsWebAuthnSupported] = useState(true);
 
@@ -30,11 +28,6 @@ export default function Home() {
         dispatch({
           type: 'disconnect',
         });
-
-        // Disconnect WalletConnect session
-        if (wcConnector && wcConnector.connected === true) {
-          await wcDisconnect(wcConnector);
-        }
       }
     }
 
@@ -42,7 +35,7 @@ export default function Home() {
     if (sessionExpiration) {
       checkSession();
     }
-  }, [sessionExpiration, wcConnector, wcDisconnect]);
+  }, [sessionExpiration]);
 
   useEffect(() => {
     async function initWalletConnect() {
@@ -61,13 +54,13 @@ export default function Home() {
     if (isAuthenticated) {
       initWalletConnect();
     }
-  }, [isAuthenticated, wcConnector, wcConnect]);
+  }, [isAuthenticated]);
 
   if (!isWebAuthnSupported) {
     return (
       <>
         <Head>
-          <title>Lit x WebAuthn | Lit Protocol</title>
+          <title>WebAuthn</title>
           <meta
             name="description"
             content="The most secure and customizable wallet that's 100% yours."
@@ -119,7 +112,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Lit x WebAuthn | Lit Protocol</title>
+        <title>WebAuthn</title>
         <meta
           name="description"
           content="The most secure and customizable wallet that's 100% yours."

@@ -6,7 +6,6 @@ import CopyBtn from './CopyBtn';
 import Footer from './Footer';
 import LogoutButton from './LogoutButton';
 import NetworkMenu from './NetworkMenu';
-import WalletConnectModal from './WalletConnectModal';
 
 const DashboardViews = {
   HOME: 'home',
@@ -102,7 +101,7 @@ export default function Dashboard() {
                     />
                   </svg>
                   <span className="text-sm sm:text-base text-left">
-                    Connect with your favorite dapps
+                    Send tokens
                   </span>
                 </div>
                 <svg
@@ -128,7 +127,6 @@ export default function Dashboard() {
         )}
       </div>
       <Footer />
-      <WalletConnectModal />
     </>
   );
 }

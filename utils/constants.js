@@ -1,8 +1,31 @@
 export const STATE_KEY = 'lit-demo-state';
-export const WALLETCONNECT_KEY = 'walletconnect';
 
-export const DEFAULT_CHAIN_ID = 5;
+export const DEFAULT_CHAIN_ID = 5001;
 export const LIT_CHAINS = [
+  {
+    chainId: 5001,
+    name: 'Mantle Testnet',
+    symbol: 'MNT',
+    decimals: 18,
+    type: 'ERC1155',
+    rpcUrls: [
+      'https://rpc.ankr.com/mantle_testnet/1a2aec0bfde1e926c21f0f91e0c90d35ec85093c8bbb9435137067b0f6e36056',
+    ],
+    blockExplorerUrls: ['https://explorer.testnet.mantle.xyz/'],
+    vmType: 'EVM',
+    testNetwork: true,
+  },
+  {
+    chainId: 5000,
+    name: 'Mantle',
+    symbol: 'MNT',
+    decimals: 18,
+    type: 'ERC1155',
+    rpcUrls: ['https://explorer.mantle.xyz/api/eth-rpc'],
+    blockExplorerUrls: ['https://explorer.mantle.xyz/'],
+    vmType: 'EVM',
+    testNetwork: false,
+  },
   {
     chainId: 1,
     name: 'Ethereum',

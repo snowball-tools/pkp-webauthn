@@ -1,5 +1,5 @@
-export function SessionCard({ wcConnector, wcDisconnect }) {
-  const peerMeta = wcConnector ? wcConnector.peerMeta : null;
+export function SessionCard({}) {
+  const peerMeta = null;
 
   return (
     <div className="bg-base-100 bg-opacity-5 p-4 sm:p-6 flex items-start justify-between">
@@ -29,10 +29,7 @@ export function SessionCard({ wcConnector, wcDisconnect }) {
         </div>
       </div>
       <div>
-        <button
-          onClick={async () => await wcDisconnect(wcConnector)}
-          className="p-1 hover:text-base-200"
-        >
+        <button className="p-1 hover:text-base-200">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

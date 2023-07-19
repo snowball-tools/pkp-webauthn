@@ -8,17 +8,6 @@ export default function Footer({ showDisclaimer = false }) {
           anything of value on your test cloud wallets at this time.
         </p>
       )}
-      <p className="text-xs sm:text-sm text-center text-base-500">
-        Powered by{' '}
-        <a
-          href="https://litprotocol.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline hover:text-orange-500"
-        >
-          Lit Protocol
-        </a>
-      </p>
     </div>
   );
 }

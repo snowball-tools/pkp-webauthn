@@ -189,7 +189,7 @@ export default function Login() {
                   type="text"
                   autoComplete="username webauthn"
                   aria-describedby="username-field"
-                  placeholder='e.g. "Eth Denver 2023"'
+                  placeholder="e.g. Beep Boop"
                   value={username}
                   onChange={e => setUsername(e.target.value)}
                   className="block w-full border border-transparent bg-base-1000 focus:border-indigo-500 focus:ring-indigo-500"

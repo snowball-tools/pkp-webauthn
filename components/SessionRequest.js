@@ -11,7 +11,6 @@ export default function SessionRequest({ payload }) {
   const peerMeta = payload.params[0].peerMeta;
   const network = getChain(appChainId, appChains);
 
-  // Approve WalletConnect session
   function approveSession(payload) {
     // console.log('Approve WalletConnect session', payload);
 

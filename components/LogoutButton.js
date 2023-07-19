@@ -1,11 +1,9 @@
 import React from 'react';
 import * as Tooltip from '@radix-ui/react-tooltip';
 import { useAppDispatch, useAppState } from '../context/AppContext';
-import useWalletConnect from '../hooks/useWalletConnect';
 
 const LogoutButton = () => {
   const { wcConnector } = useAppState();
-  const { wcDisconnect } = useWalletConnect();
 
   const dispatch = useAppDispatch();
 
@@ -14,11 +12,6 @@ const LogoutButton = () => {
     dispatch({
       type: 'disconnect',
     });
-
-    // Disconnect WalletConnect session
-    if (wcConnector && wcConnector.connected === true) {
-      await wcDisconnect(wcConnector);
-    }
   }
 
   return (
